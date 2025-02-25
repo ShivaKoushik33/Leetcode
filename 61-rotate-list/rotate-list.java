@@ -12,7 +12,6 @@ class Solution {
     
     public ListNode rotateRight(ListNode head, int k) {
         if(head==null || head.next==null|| k==0 ) return head;
-        
         ListNode temp=head;
         ListNode t1;
         int count=1;
@@ -26,15 +25,12 @@ class Solution {
         if(k>count){
             k=k%count;
         }
-        System.out.println("count "+count);
         temp=head;
         while(x<count-k){
             temp=temp.next;
             x++;
         }
-     System.out.println(x);
         t1=temp.next;
-        // head=temp.next;
         temp.next=null;
 
         prev=t1;
