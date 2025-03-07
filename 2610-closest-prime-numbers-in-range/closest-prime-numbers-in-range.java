@@ -13,7 +13,7 @@ class Solution {
         arr[1]=-1;
         List<Integer> l=new ArrayList<>();
         int j=0;
-        
+       
         for(int i=left;i<=right;i++){
             if(isPrime(i)){
                 if(i!=1){
