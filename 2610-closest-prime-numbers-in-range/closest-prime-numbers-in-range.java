@@ -32,6 +32,9 @@ class Solution {
                         minDiff=diff;
                     arr[0]=l.get(i);
                     arr[1]=l.get(i+1);
+                    if(minDiff==1){
+                        return arr;
+                    }
                     }
                     
             
