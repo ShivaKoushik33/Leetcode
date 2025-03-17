@@ -1,19 +1,23 @@
 class Solution {
     public int[] nextGreaterElements(int[] nums) {
-        int n=nums.length;
-        int nge[]=new int[nums.length];
-        for(int i=0;i<n;i++){
-            nge[i]=-1;
-        }
-        for(int i=0;i<n;i++){
-            for(int j=i+1;j<i+n;j++){
-                int idx=j%n;
-                if(nums[i]<nums[idx]){
-                    nge[i]=nums[idx];
-                    break;
-                }
+        int n = nums.length;
+        int[] nge = new int[n];
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        Stack<Integer> st = new Stack<>();
+        for (int i = 2 * n - 1; i >= 0; i--) {
+            int id = i % n;
+
+            while (!st.isEmpty() && st.peek()<=nums[id]) {
+                st.pop();
             }
+            
+            if(i<n){
+                nge[id]=st.isEmpty()?-1:st.peek();
+            }
+                st.push(nums[id]);
         }
+        
+        
         return nge;
     }
 }
