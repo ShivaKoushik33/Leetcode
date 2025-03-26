@@ -11,13 +11,14 @@ class Solution {
     public int median(int[] flat,int m,int x){
          Arrays.sort(flat);
        int median = flat[(m) / 2]; 
+    //    System.out.println(median);
         return countOperations(flat, x, median,m);
 
     }
     public int minOperations(int[][] grid, int x) {
         int m=grid.length;
         int n=grid[0].length;
-        boolean flag;
+        
         int flat[]=new int [m*n];
 
     int count=0;
