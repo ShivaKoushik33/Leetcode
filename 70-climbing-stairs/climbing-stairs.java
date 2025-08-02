@@ -1,15 +1,25 @@
 class Solution {
-    public int climbStairs(int n) {
-        int[] dp = new int[n+1];
-        Arrays.fill(dp,-1);
-        int k = climbStairsHelper(n,dp);
-        return k;
+    static int t[]=new int[47];
+    public int fun(int n){
+        if(n==0){
+            return 0;
+        }
+        if(n==1){
+            return t[1];
+        }
+        for(int i=3;i<n+1;i++){
+            t[i]=t[i-1]+t[i-2];
+        }
+        
+        
+        return t[n];
     }
-    public int climbStairsHelper(int n, int[] dp){
-        if(n <= 1) return 1;
-        if(dp[n] != -1) return dp[n];
-        dp[n] = climbStairsHelper(n-1,dp) + 
-                climbStairsHelper(n-2,dp);
-        return dp[n];
+    public int climbStairs(int n) {
+        t[0]=0;
+        t[1]=1;
+        t[2]=2;
+       
+
+        return fun(n);
     }
 }
