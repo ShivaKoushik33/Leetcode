@@ -13,14 +13,15 @@
  *     }
  * }
  */
-class Solution {
+class Solution { 
+    int ans=Integer.MIN_VALUE;
     public int height(TreeNode root){
         if(root==null){
             return 0;
         }
         int left=height(root.left);
         int right=height(root.right);
-
+        ans=Math.max(ans,(left+right));
         return 1+Math.max(left,right);
     }
     public void fn(TreeNode root){
@@ -34,9 +35,9 @@ class Solution {
         fn(root.right);
 
     }
-    int ans=Integer.MIN_VALUE;
+   
     public int diameterOfBinaryTree(TreeNode root) {
-       fn(root);
+       height(root);
          
 
         return ans;
