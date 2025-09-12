@@ -33,13 +33,13 @@ class Solution {
          fn(root,0,0,hm);
       int ans=0;
       //printing the data
-      for(int key:hm.keySet()){
-        System.out.print(key+" -> ");
-        for(int arr[]:hm.get(key)){
-            System.out.print(Arrays.toString(arr)+" ");
-        }
-        System.out.println();
-      }
+    //   for(int key:hm.keySet()){
+    //     System.out.print(key+" -> ");
+    //     for(int arr[]:hm.get(key)){
+    //         System.out.print(Arrays.toString(arr)+" ");
+    //     }
+    //     System.out.println();
+    //   }
          for(int key:hm.keySet()){
                 // Collections.sort(hm.get(key), (a, b) -> {
                 //     if (a[0] == b[0]) return a[1] - b[1]; 
