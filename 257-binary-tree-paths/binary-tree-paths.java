@@ -14,28 +14,31 @@
  * }
  */
 class Solution {
-    public boolean isLeaf(TreeNode root){
-        if(root.left==null && root.right==null){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+    // public boolean isLeaf(TreeNode root){
+    //     if(root.left==null && root.right==null){
+    //         return true;
+    //     }
+    //     else{
+    //         return false;
+    //     }
+    // }
     public void fn(TreeNode root,String temp,List<String> ans){
-        if(isLeaf(root)){
+        if(root==null){
+            return ;
+        }
+        if(root.left==null && root.right==null){
             temp+=root.val;
             ans.add(temp);
         }
         else{
             temp+=root.val;
             temp+="->";
-            if(root.left!=null){
+            
                  fn(root.left,temp,ans);
-            }
-            if(root.right!=null){
+            
+            
                 fn(root.right,temp,ans);
-            }
+            
            
             
         }
