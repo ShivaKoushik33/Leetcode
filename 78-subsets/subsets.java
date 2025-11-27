@@ -16,7 +16,7 @@ class Solution {
         ArrayList<Integer> l=new ArrayList<>();
          List<List<Integer>> ans=new ArrayList<>();
         
-             sub(0,nums,l,ans);
+        sub(0,nums,l,ans);
         return ans;
     }
 }
