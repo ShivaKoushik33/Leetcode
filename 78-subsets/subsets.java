@@ -15,8 +15,19 @@ class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         ArrayList<Integer> l=new ArrayList<>();
          List<List<Integer>> ans=new ArrayList<>();
-        
-        sub(0,nums,l,ans);
+           List<Integer> temp;
+         int n=nums.length;
+        for(int i=0;i<(1<<n);i++){
+                temp=new ArrayList<>();;
+            for(int j=0;j<n;j++){
+
+                    if(((1<<j)&i)!=0){
+                        temp.add(nums[j]);
+                    }
+            }
+            ans.add(temp);
+        }
+        // sub(0,nums,l,ans);
         return ans;
     }
 }
