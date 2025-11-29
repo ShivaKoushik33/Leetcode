@@ -1,29 +1,34 @@
 class Solution {
-    private static final int MOD = 1000000007;
-
-    public int countGoodNumbers(long n) {
-        long evenCount = (n + 1) / 2;  // even indices
-        long oddCount = n / 2;         // odd indices
-
-        long evenWays = modPow(5, evenCount);
-        long oddWays = modPow(4, oddCount);
-
-        return (int)((evenWays * oddWays) % MOD);
-    }
-
-    // Modular exponentiation: calculates (base^exp) % MOD
-    private long modPow(long base, long exp) {
-        long result = 1;
-        base %= MOD;
-
-        while (exp > 0) {
-            if ((exp & 1) == 1) {         // if exponent is odd
-                result = (result * base) % MOD;
+    int div=1000000007;
+    public long fn(long n,long x){
+            long copy=n;
+            long ans=1;
+            x%=div;
+            while(n>0){
+                if(n%2==1){
+                    ans=(ans*x)%div;
+                    n=n-1;
+                }
+                else{
+                    x=(x*x)%div;
+                    n=n/2;
+                }
             }
-            base = (base * base) % MOD;   // square the base
-            exp >>= 1;                    // divide exponent by 2
+        return ans;
+    }
+    public int countGoodNumbers(long n) {
+        long odd=n/2;
+        long even=(n+1)/2;
+        long ans=1;
+        if(odd!=0){
+             ans=(ans*fn(odd,4))%div;
         }
+        if(even!=0){
+            ans=(ans*fn(even,5))%div;
+        }
+        // ans+=fn(odd,4);
+        
+        return (int)ans%div;
 
-        return result;
     }
 }
